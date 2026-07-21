@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9개월만에 마라톤 완주까지 — 직접 경험한 런닝 다이어트 전자책</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  /* ============================================================
+     기본 설정
+     ============================================================ */
+  :root {
+    --bg: #16181d;
+    --bg-soft: #1d2026;
+    --line: #2a2e36;
+    --text: #e8e6e1;        /* 본문 회백색 */
+    --text-dim: #9a9da5;    /* 보조 텍스트 */
+    --gold: #e8bf74;        /* 포인트: 핵심 숫자에만 */
+    --kakao: #FEE500;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+  }
+
+  /* 모바일 우선(430px 기준), PC에서는 최대 560px 중앙 정렬 */
+  .container {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { padding: 96px 0; }
+
+  .num { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     사진 공통 — 세로형 위주, max-height 70vh, 둥근 모서리, 중앙 정렬
+     ============================================================ */
+  .photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .photo .date-label {
+    align-self: flex-start;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .photo img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 12px;
+    display: block;
+  }
+  /* 로드 실패 시 JS가 img를 이 플레이스홀더로 교체 */
+  .ph-fallback {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-height: 70vh;
+    background: #23262d;
+    border: 1px dashed #3a3e47;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b6f78;
+    font-size: 13px;
+    text-align: center;
+    padding: 12px;
+  }
+  .ph-fallback--wide { aspect-ratio: 4 / 3; }
+
+  .photo + .photo { margin-top: 16px; }
+
+  /* ============================================================
+     스크롤 페이드인 (과하지 않게)
+     ============================================================ */
+  .fade {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .fade { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ============================================================
+     섹션1 — 히어로 (훅)
+     ============================================================ */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 64px 0 110px;
+  }
+  .hero h1 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+  }
+  .hero .sub {
+    margin-top: 28px;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--text-dim);
+  }
+  .hero .punch {
+    margin-top: 32px;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+  .hero .photo { margin-top: 32px; }
+  .hero .photo img {
+    max-height: 38vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-dim);
+  }
+  .scroll-cue svg { animation: bounce 2s ease-in-out infinite; display: block; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ============================================================
+     공통 카피 / 라벨
+     ============================================================ */
+  .section-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 16px;
+    margin-bottom: 28px;
+  }
+  .headline {
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+  .copy {
+    font-size: 17px;
+    line-height: 1.85;
+    margin-top: 28px;
+  }
+  .copy--dim { color: var(--text-dim); font-size: 15px; }
+  .copy--strong {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     런닝머신 인증 그리드 (15장 → 6장 압축)
+     ============================================================ */
+  .tm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .tm-item { position: relative; }
+  .tm-item img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+  .tm-item .tm-date {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    background: rgba(22, 24, 29, 0.75);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+  }
+  .tm-item .ph-fallback { aspect-ratio: 3 / 4; border-radius: 10px; font-size: 11px; }
+
+  /* ============================================================
+     GIF 배치
+     ============================================================ */
+  .gif-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .gif-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .gif-item img, .gif-item video {
+    width: 100%;
+    display: block;
+  }
+  @media (max-width: 480px) {
+    .gif-grid { gap: 12px; }
+  }
+
+  /* ============================================================
+     Before / After
+     ============================================================ */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+    margin-top: 32px;
+  }
+  .ba-grid .photo img { max-height: 50vh; width: 100%; object-fit: cover; aspect-ratio: 3/4; }
+  .ba-grid .ph-fallback { max-height: 50vh; }
+  .ba-caption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    width: 100%;
+  }
+
+  /* ============================================================
+     브릿지 (섹션 5.5) + 미들 CTA
+     ============================================================ */
+  .bridge {
+    text-align: center;
+    padding: 80px 0;
+  }
+  .bridge .big {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+  }
+  .bridge .small {
+    margin-top: 24px;
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+  .btn--ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 32px;
+    padding: 11px 22px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text-dim);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .btn--bridge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 12px;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .btn--bridge:hover { opacity: 0.9; }
+
+  /* ============================================================
+     표 공통 (구간 기록 / 1주차 세팅표)
+     ============================================================ */
+  .table-wrap { margin-top: 32px; overflow-x: auto; }
+  .table-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  table.rec {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  table.rec th {
+    background: var(--bg-soft);
+    color: var(--text-dim);
+    font-weight: 600;
+    padding: 10px 8px;
+    border: 1px solid var(--line);
+  }
+  table.rec td {
+    padding: 10px 8px;
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+  table.rec td.gold { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     전자책 — 얻는 것 리스트
+     ============================================================ */
+  .ebook-title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-top: 32px;
+  }
+  .benefit-list {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .benefit-list li {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .benefit-list li strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .benefit-list li .why {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--gold);
+  }
+
+  /* ============================================================
+     다운로드 (오퍼)
+     ============================================================ */
+  .download {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .download h2 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .download .guide {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .download .guide--dim {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .pw-row { display: flex; gap: 10px; margin-top: 28px; }
+  .pw-row input {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--text);
+    font-size: 16px;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+  }
+  .pw-row input:focus { outline: none; border-color: #4a4f5a; }
+  .pw-row input::placeholder { color: #565b64; letter-spacing: 0; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn--check { background: var(--text); color: var(--bg); flex-shrink: 0; }
+  .btn--download { width: 100%; background: var(--text); color: var(--bg); padding: 16px 22px; }
+  .btn--kakao { width: 100%; background: var(--kakao); color: #191919; padding: 16px 22px; margin-top: 12px; }
+
+  .pw-result { margin-top: 24px; }
+  .pw-result[hidden] { display: none; }
+  .success-note { margin: 28px 0 12px; font-size: 15px; }
+  .error-msg { font-size: 15px; }
+  .error-sub { margin-top: 10px; font-size: 14px; color: var(--text-dim); }
+  .error-sub a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .shake { animation: shake 0.3s ease; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  /* 오퍼 안의 제품 카드 */
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .product-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  .product-card .ph-fallback { aspect-ratio: 1 / 1; border-radius: 8px; }
+  .product-card .name { font-size: 15px; font-weight: 700; }
+  .product-card .desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+  .product-card a {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 360px) {
+    .products { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     푸터 (클로징)
+     ============================================================ */
+  footer { padding: 110px 0 72px; text-align: center; }
+  footer .closing {
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--text-dim);
+  }
+  footer .closing strong {
+    display: block;
+    margin-top: 24px;
+    font-size: 19px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  footer .last {
+    margin-top: 28px;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+  footer .last a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     섹션1 — 훅: 독자의 고통으로 시작
+     ============================================================ -->
+<section class="hero">
+  <div class="container">
+    <h1 class="fade">
+      런닝머신에서 10분은,<br>
+      왜 그렇게 지루하고 길게 느껴질까요?
+    </h1>
+    <p class="sub fade">
+      유산소만 시작하면 시간이 느리게 갑니다.<br>
+      결국 오늘도 10분만 뜁니다.
+    </p>
+    <div class="photo fade">
+      <img src="./assets/hero-treadmill.png" loading="lazy" alt="런닝머신 계기판, 9분 50초">
+      <p class="ba-caption">런닝머신 위의 9분 50초</p>
+    </div>
+    <p class="punch fade">
+      저도 마찬가지였습니다.<br>
+      장담컨데, 이건 <span class="num">의지의 문제가 절대 아닙니다.</span>
+    </p>
+  </div>
+  <a class="scroll-cue" href="#proof" aria-label="아래로 스크롤">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ============================================================
+     섹션2 — 반전 증거 예고 (오픈 루프)
+     ============================================================ -->
+<section id="proof">
+  <div class="container">
+    <h2 class="headline fade">
+      5km도 제대로 못 뛰던 사람이,<br>
+      단 9개월 만에 풀코스 마라톤<br>
+      <span class="num">42.195km</span>를 완주했습니다.<br>
+    </h2>
+    <div class="photo fade">
+      <img src="./assets/race-photo.jpg" loading="lazy" alt="마라톤 레이스 중 사진">
+    </div>
+    <p class="copy fade">
+      타고난 체력? 그런건 없었습니다.<br>
+      독한 의지? 그것도 없었습니다.<br>
+      제게 있었던 건 <span class="num">'꾸준히 할 수 있는 계획' </span>하나였습니다.
+    </p>
+    <p class="copy fade">
+      지금부터 그 지난 9개월의 과정을 꾸밈없이 보여드리겠습니다.<br>
+      그리고 이 페이지 마지막에, <br>
+      내일 아침부터 그대로 따라 할 수 있는<br>
+      <span class="num">'첫 8주 계획표'</span>를 드립니다.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션3 — 공감: 독자의 실패 패턴 대신 말해주기
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h2 class="headline fade">운동 결심의 결말은 대개 비슷합니다</h2>
+    <p class="copy fade">
+      매년 1월. 헬스장 회원권을 결제합니다.<br>
+      첫주는 의욕적으로 출석하고, 열심히 운동합니다.<br>
+      둘째주부터는 조금씩 의지가 꺾이기 시작합니다.<br>
+      2~3달 뒤, 출석률은 눈에 띄게 줄어듭니다.
+    </p>
+    <p class="copy copy--strong fade">저도 똑같았습니다.</p>
+
+    <div class="photo fade" style="margin-top: 40px;">
+      <span class="date-label">2024년 11월</span>
+      <img src="./assets/01-before.jpg" loading="lazy" alt="운동 시작 전 모습">
+    </div>
+    <p class="copy fade">
+      야식은 습관이었고, 운동은 늘 육아 핑계로 미뤘습니다.<br>
+      배가 뽈록 나온 39살.<br>
+      <span class="num">늘 미루는 삶을 살고 있었습니다.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션4 — 원인 재정의 (죄책감 해제 + 메커니즘 예고)
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h2 class="headline fade">꾸준히 못하는 진짜 이유는</h2>
+    <p class="copy copy--strong fade">
+      ① "재미가 없어서" 입니다.<br>
+      ② "내 수준보다 높은 계획" 때문입니다.
+    </p>
+    <p class="copy fade">그래서 저는 딱 두 가지만 바꿨습니다.</p>
+    <p class="copy fade">
+      하나, <span class="num">뛰지 않고 걷기부터 시작했습니다.</span>
+    </p>
+    <p class="copy fade">
+      둘, <span class="num">운동 시간을 '재밌고 기다려지는 시간'으로 만들었습니다.</span><br>
+      보고 싶던 드라마는 운동할 때만 봤습니다.<br>
+      운동하러 가는 게 아니라,<br>
+      다음 화를 보러 가는 것이 되었습니다.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션5 — 스토리: 첫 3개월 (사진 압축 구간)
+     ============================================================ -->
+<section>
+  <div class="container">
+    <div class="fade"><span class="section-label">2025년 5월, 첫 운동 날</span></div>
+    <div class="photo fade">
+      <img src="./assets/02-walk-may.jpg" loading="lazy" alt="5월 새벽 걷기 기록">
+    </div>
+    <p class="copy fade">
+      새벽 6시 반, <span class="num">뛰지 않고 걸었습니다.</span><br>
+      나에게 스트레스를 주지 않는데 집중했습니다.
+    </p>
+    <div class="photo fade" style="margin-top: 40px;">
+      <img src="./assets/03-walk-june.jpg" loading="lazy" alt="6월 새벽 걷기 기록">
+    </div>
+    <p class="copy fade">
+      저에게 가장 잘 맞는 시간대를 찾기위해<br>
+      출근 전 시간을 택했습니다.
+    </p>
+
+    <h2 class="headline fade" style="margin-top: 72px;">가장 많이 포기하는 첫 3개월(+여름더위)</h2>
+    <p class="copy fade">
+      저는 실내에서 버텼습니다.<br>
+      날씨 핑계가 사라지니, <span class="num">빠질 이유도 함께 사라졌습니다.</span>
+    </p>
+
+    <div class="tm-grid fade">
+      <div class="tm-item">
+        <img src="./assets/04-tm-1.jpg" loading="lazy" alt="7월 16일 런닝머신 기록">
+        <span class="tm-date">7.16</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/04-tm-2.jpg" loading="lazy" alt="7월 17일 런닝머신 기록">
+        <span class="tm-date">7.17</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/04-tm-3.jpg" loading="lazy" alt="7월 31일 런닝머신 기록">
+        <span class="tm-date">7.31</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-1.jpg" loading="lazy" alt="8월 1일 런닝머신 기록">
+        <span class="tm-date">8.1</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-2.jpg" loading="lazy" alt="8월 5일 런닝머신 기록">
+        <span class="tm-date">8.5</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-3.jpg" loading="lazy" alt="8월 6일 런닝머신 기록">
+        <span class="tm-date">8.6</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-4.jpg" loading="lazy" alt="8월 7일 런닝머신 기록">
+        <span class="tm-date">8.7</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-5.jpg" loading="lazy" alt="8월 8일 런닝머신 기록">
+        <span class="tm-date">8.8</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-6.jpg" loading="lazy" alt="8월 13일 런닝머신 기록">
+        <span class="tm-date">8.13</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-7.jpg" loading="lazy" alt="8월 14일 런닝머신 기록">
+        <span class="tm-date">8.14</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-8.jpg" loading="lazy" alt="8월 22일 런닝머신 기록">
+        <span class="tm-date">8.22</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-9.jpg" loading="lazy" alt="8월 27일 런닝머신 기록">
+        <span class="tm-date">8.27</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-10.jpg" loading="lazy" alt="8월 28일 런닝머신 기록">
+        <span class="tm-date">8.28</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/09-tm-1.jpg" loading="lazy" alt="9월 11일 런닝머신 기록">
+        <span class="tm-date">9.11</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/09-tm-2.jpg" loading="lazy" alt="9월 17일 런닝머신 기록">
+        <span class="tm-date">9.17</span>
+      </div>
+    </div>
+
+    <p class="copy fade">
+      저는 운동을 간다고 생각하지 않았습니다.<br>
+      드라마, 영화를 60분씩 보러 갔습니다.<br>
+      <span class="num">뛰고싶지 않은날은 걸었습니다. 그래도 충분했습니다.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션5.5 — 브릿지 멘트 (이탈 방지 장치 2번) + 미들 CTA
+     ============================================================ -->
+<section class="bridge">
+  <div class="container">
+    <p class="big fade">
+      여기까지가, 사실 여러분에게 필요한 전부입니다.<br>
+      <span class="num">첫 3개월까지 그저 재미있게 즐기는것</span>
+    </p>
+    <p class="small fade">
+      이후부터는<br>
+      습관이 자연스럽게 우리를 이끌어 주게 됩니다.<br>
+    </p>
+    <a class="btn--bridge fade" href="#ebook">
+      '첫 8주 계획표' 지금 바로 받기
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션6 — 데이터 증거 (캡션을 독자 이익으로 번역)
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h2 class="headline fade">관성의 법칙, 습관의 힘이 만든 제 기록입니다.</h2>
+
+    <div class="photo fade">
+      <img src="./assets/10-steps-1year.jpg" loading="lazy" alt="애플워치 1년 치 걸음 수 그래프">
+    </div>
+    <p class="copy fade">5월 중순부터 서서히 올라가기 시작합니다.</p><br><br>
+    <div class="photo fade">
+      <img src="./assets/11-steps-now.jpg" loading="lazy" alt="일일 평균 걸음 수 11,166걸음">
+    </div>
+    <p class="copy fade">
+      하루 평균 5,000걸음이던 사람이<br>
+      <span class="num">11,166걸음</span>이 되었습니다.<br>
+      억지로 참아가며 늘린 게 아닙니다.<br>
+      그저 즐기면서 계획대로, 습관이 생겼을 뿐입니다.
+    </p>
+
+    <div class="photo fade">
+      <img src="./assets/09-weight-before.jpg" loading="lazy" alt="시작 무렵 체중계">
+    </div>
+    <p class="copy fade">
+      체중계 숫자에 크게 신경쓰지 않았었는데,<br>
+      <span class="num">어느새 80kg에서 75kg가 되어있었습니다.</span>
+    </p>
+
+    <div class="gif-grid fade" style="margin-top: 48px;">
+      <div class="gif-item">
+        <img src="./assets/nike-scroll-1.gif" loading="lazy" alt="나이키앱 9개월 전체 기록 1">
+      </div>
+      <div class="gif-item">
+        <img src="./assets/nike-scroll-1.5.gif" loading="lazy" alt="나이키앱 9개월 전체 기록 2">
+      </div>
+      <div class="gif-item">
+        <img src="./assets/nike-scroll-2.gif" loading="lazy" alt="나이키앱 9개월 전체 기록 3">
+      </div>
+      <div class="gif-item">
+        <img src="./assets/nike-scroll-3.gif" loading="lazy" alt="나이키앱 9개월 전체 기록 4">
+      </div>
+    </div>
+    <p class="copy fade">
+      아팠던 날도 물론 있었습니다.<br>
+      그래도 이어진 이유는 의지가 아니라,<br>
+      <span class="num">제 수준에 맞게 낮춰놓은 습관</span> 덕분이었습니다.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션7 — 증거의 클라이맥스: 마라톤
+     ============================================================ -->
+<section>
+  <div class="container">
+    <div class="fade"><span class="section-label">2025년 9월 21일</span></div>
+    <div class="photo fade">
+      <img src="./assets/38-daegu-receipt.jpg" loading="lazy" alt="풀코스 마라톤 신청 완료 영수증">
+    </div>
+    <p class="copy fade">
+      9월쯤 되자 자연스레 <span class="num">'풀코스 마라톤'</span>에 흥미가 생겼습니다.<br>
+      처음 시작할 땐 상상도 못했던 일이었습니다.<br>
+    </p>
+
+    <div class="fade" style="margin-top: 56px;"><span class="section-label">2025년 10월 12일</span></div>
+    <div class="photo fade">
+      <img src="./assets/13-half-cert.jpg" loading="lazy" alt="하프 마라톤 기록증 1시간 54분">
+    </div>
+    <p class="copy fade">
+      중간 점검으로 나간 첫 하프마라톤에 나갔습니다.<br>
+      기록 <span class="num">1시간 54분</span>.<br>
+      저도 모르는 새 많이 성장한것을 확인했습니다.
+    </p>
+
+    <h2 class="headline fade" style="margin-top: 56px;">6개월 사이, 얼굴도 눈에 띄게 달라졌습니다</h2>
+    <div class="ba-grid fade">
+      <div class="photo">
+        <img src="./assets/08-tm-2.5.jpg" loading="lazy" alt="2025년 5월 배가 나온 모습">
+        <p class="ba-caption">2025년 5월</p>
+      </div>
+      <div class="photo">
+        <img src="./assets/14-gym-nov.jpg" loading="lazy" alt="2025년 11월 얼굴살이 빠진 모습">
+        <p class="ba-caption">2025년 11월</p>
+      </div>
+    </div>
+    <p class="copy fade">
+      특별히 식단을 신경쓰거나 다이어트를 하려고 마음먹지 않았습니다.<br>
+      그저 <span class="num">꾸준함이 가져온 변화</span>였습니다.
+    </p>
+
+    <h2 class="headline fade" style="margin-top: 56px;">한번 자리잡힌 습관으로, 겨울에도 멈춰지지 않았습니다</h2>
+    <div class="ba-grid fade">
+      <div class="photo">
+        <img src="./assets/16-weather.jpg" loading="lazy" alt="체감온도 영하 13도 날씨 화면">
+        <p class="ba-caption">체감온도 영하 14도 였던날</p>
+      </div>
+      <div class="photo">
+        <img src="./assets/30-weather-jan8.jpg" loading="lazy" alt="1월 8일 영하 9도 날씨">
+        <p class="ba-caption">꾸준함의 결과</p>
+      </div>
+    </div>
+    <p class="copy fade">
+      의지로 나간 게 아닙니다.<br>
+      <span class="num">습관이 나가게 했습니다.</span>
+    </p>
+
+    <div class="fade" style="margin-top: 56px;"><span class="section-label">2025년 12월 31일</span></div>
+    <div class="photo fade">
+      <img src="./assets/26-outdoor-dec31.jpg" loading="lazy" alt="12월 31일 새벽 야외 러닝">
+    </div>
+    <p class="copy fade">
+      문득 더 멀리 뛰고 싶어, 새벽 3시에 나왔습니다.<br>
+      2025년 마지막 날이었지만, <span class="num">습관은 저를 또 뛰게 만들었습니다.</span>
+    </p>
+    <div class="photo fade" style="margin-top: 40px;">
+      <img src="./assets/27-nike-30km-dec31.jpg" loading="lazy" alt="12월 31일 나이키 러닝 기록 30km">
+    </div>
+    <p class="copy fade">
+      이날 기록은 <span class="num">30km</span>.<br>
+      기량이 눈에 띄게 늘었습니다. 지치지 않았습니다.
+    </p>
+    <div class="gif-grid fade" style="margin-top: 40px;">
+      <div class="gif-item">
+        <img src="./assets/28-gif-dec31-run.gif" loading="lazy" alt="12월 31일 새벽 러닝 움짤">
+      </div>
+      <div class="gif-item">
+        <img src="./assets/29-gif-dec31-watch.gif" loading="lazy" alt="12월 31일 시계 확인 움짤">
+      </div>
+    </div>
+
+    <div class="fade" style="margin-top: 56px;"><span class="section-label">2026년 1월 27일</span></div>
+    <div class="photo fade">
+      <img src="./assets/34-nike-4249-jan27.jpg" loading="lazy" alt="1월 27일 나이키 러닝 기록 42.49km">
+    </div>
+    <p class="copy fade">
+      그러던 1월 어느날, 인생 첫 <span class="num">42.49km</span>를 뛰었습니다.<br>
+      평일이라서 씻고나서 바로 출근까지 했습니다.<br>
+      마흔 살인데, 오히려 제 20대 시절보다도 체력이 좋아졌습니다.
+    </p>
+
+    <div class="fade" style="margin-top: 56px;"><span class="section-label">2026년 2월 21일</span></div>
+    <div class="photo fade">
+      <img src="./assets/20-daegu.jpg" loading="lazy" alt="마라톤 전날 대구행 기차">
+    </div>
+    <p class="copy fade">대망의 마라톤 전날, 대구행 기차를 탔습니다.</p>
+
+    <div class="photo fade" style="margin-top: 48px;">
+      <img src="./assets/smartchip.png" loading="lazy" alt="풀코스 공식 기록 화면">
+    </div>
+
+    <div class="ba-grid fade" style="margin-top: 48px;">
+      <div class="photo">
+        <img src="./assets/marathon-race-1.jpg" loading="lazy" alt="마라톤 레이스 중 사진 1">
+      </div>
+      <div class="photo">
+        <img src="./assets/marathon-race-2.jpg" loading="lazy" alt="마라톤 레이스 중 사진 2">
+      </div>
+    </div>
+
+    <p class="copy fade" style="margin-top: 40px;">
+      2026년 2월 22일<br>
+      <span class="num">4시간 45분 18초. 완주.</span>
+    </p>
+    <p class="copy fade">
+      35km부터 다리가 무너졌습니다.<br>
+      그래도 멈추지 않았습니다.<br>
+      <span class="num">걷기로 시작한 사람에게,<br>걷는 것은 실패가 아니니까요.</span><br>
+      이것이 제 플랜의 핵심 철학입니다.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션8 — 전자책: 무엇을 얻는가
+     ============================================================ -->
+<section id="ebook">
+  <div class="container">
+    <h2 class="headline fade">9개월의 결과를 결정한 것은<br>사실 <span class="num">'첫 8주'</span>였습니다</h2>
+    <p class="copy fade">운동이 지루하고 힘든분들에게 도움을 주고 싶어 이 전자책을 썼습니다.</p>
+
+    <div class="photo fade" style="margin-top: 40px;">
+      <img src="./assets/ebook-cover.jpg" loading="lazy" alt="전자책 표지">
+    </div>
+    <p class="ebook-title fade">《9개월 만에 마라톤 완주까지》<br>바로 따라하는 초보자 런닝 가이드</p>
+
+    <ul class="benefit-list fade">
+      <li>
+        <strong>운동이 어려우세요? 오히려 좋습니다.</strong>
+        초보라서 불리한 게 아니라, 초보라서 유리한 이유를 알려드립니다.
+      </li>
+      <li>
+        <strong>운동을 '절대' 안 거르게 되는 방법</strong>
+        의지가 아니라 구조(습관화)입니다. 저를 9개월간 유지하게 만든 비법을 알려드립니다.
+      </li>
+      <li>
+        <strong>운동한 나에게 주는 '보상 설계법'</strong>
+        헬스장 가는 날을 기다리게 만들어 드립니다. 운동시간을 '즐거운 시간'으로 바꾼 원리가 여기 있습니다.
+        <span class="why">→ 뇌를 속이는 트릭</span>
+      </li>
+      <li>
+        <strong>운동 다녀온 기록을 왜 남겨?</strong>
+        잘 남긴 운동 기록이 꾸준하게 만들어 줍니다.
+        <span class="why">→ 기록으로 쉽게 만드는 습관 모멘텀</span>
+      </li>
+      <li>
+        <strong>다이어트에 신경 안 쓸수록 오히려 좋은 이유</strong>
+        체중계를 매일 보면 안되는 이유, 가장 중요한건 따로 있습니다.
+      </li>
+      <li>
+        <strong>1~8주 세팅표 (걷기 → 달리기 전환)</strong>
+        지난 9개월간 제가 실제로 따라한 계획표를 그대로 드립니다.
+        <span class="why">→ 누구나 쉽게 따라 하는 초보자를 위한 가이드</span>
+      </li>
+    </ul>
+
+    <div class="table-wrap fade" style="margin-top: 48px;">
+      <p class="table-title">1주차 세팅표 샘플</p>
+      
+      </table>
+      <p class="copy copy--dim" style="margin-top: 12px;">거창한 목표를 세우지 않으셔도 됩니다. 가볍게 해도 돼요.</p>
+    </div>
+
+    <p class="copy fade" style="margin-top: 40px;">
+      이 책이 약속하는 것은 풀코스마라톤 완주가 아닙니다.<br>
+      <span class="num">"8주 뒤에도 여전히 운동하고 있는 나"</span>입니다.<br>
+      마라톤은, 원하면 따라오는 부수적인 것일 뿐입니다.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션9 — 오퍼: 받는 방법 (비밀번호 게이트 + 제품)
+     ============================================================ -->
+<section class="download" id="download">
+  <div class="container">
+    <h2 class="fade">이 전자책은 판매하지 않습니다</h2>
+    <p class="guide fade">
+      아래 제품 구매 후 <span class="num">구매인증</span>을 해주시면<br>
+      다운로드 링크를 전달 드립니다.
+    </p>
+
+    <div class="pw-row fade">
+      <input type="text" id="pw-input" placeholder="비밀번호 입력" autocomplete="off" autocapitalize="characters" aria-label="비밀번호 입력">
+      <button type="button" class="btn btn--check" id="pw-check">확인</button>
+    </div>
+
+    <!-- 정답 시 -->
+    <div class="pw-result" id="pw-success" hidden>
+      <a class="btn btn--download" href="#" download>전자책 다운로드</a>
+      <p class="success-note">3주차 권태기가 오면 채널로 응원을 보내드립니다</p>
+      <a class="btn btn--kakao" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919" aria-hidden="true">
+          <path d="M12 3C6.48 3 2 6.54 2 10.9c0 2.8 1.86 5.26 4.66 6.65-.15.53-.97 3.36-1 3.58 0 0-.02.17.09.24.11.06.24.01.24.01.32-.04 3.66-2.4 4.24-2.81.57.08 1.16.13 1.77.13 5.52 0 10-3.54 10-7.9S17.52 3 12 3z"/>
+        </svg>
+        카카오채널 추가하기
+      </a>
+    </div>
+
+    <!-- 오답 시 -->
+    <div class="pw-result" id="pw-error" hidden>
+      <p class="error-msg">카드에 적힌 비밀번호를 다시 확인해주세요</p>
+      <p class="error-sub">아직 구매 전이시라면? <a href="#">스토어 바로가기</a></p>
+    </div>
+
+    <p class="guide fade" style="margin-top: 56px;"><strong>저의 첫 3개월을 버티게 해준 도구를 소개합니다.</strong></p>
+    <div class="products fade">
+      <div class="product-card">
+        <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
+        <p class="name">런닝머신 핸드폰 거치대</p>
+        <p class="desc">W거치대<br>"운동하러 가는 날"을 "다음 화 보러 가는 날"로 바꿔준 도구입니다.</p>
+        <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">스토어에서 보기</a>
+      </div>
+      <div class="product-card">
+        <img src="./assets/product-helfix.png" loading="lazy" alt="헬픽스">
+        <p class="name">헬픽스</p>
+        <p class="desc">근력 운동 시간도 "재미있는 시간"으로 바꿔준 도구 입니다</p>
+        <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">스토어에서 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     섹션10 — 마지막 한 마디 (클로징)
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <p class="closing fade">
+      9개월 전의 저는 5km도 뛰지 못했습니다.<br>
+      여러분이 지금 어떤 상태이든, 저보다 나쁘지는 않을 겁니다.
+      <strong>필요한 건 의지가 아니라,<br><span class="num">실패하지 않게 설계된 첫 8주</span>입니다.</strong>
+    </p>
+    <p class="last fade"><a href="#download">그 8주가 위에 있습니다. ↑</a></p>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     ★ 비밀번호 — 여기서 변경하세요 ★
+     제품 패키지 카드에 인쇄된 비밀번호와 동일하게 맞추면 됩니다.
+     ============================================================ */
+  const PASSWORD = "TEMP1234";
+
+  /* ------------------------------------------------------------
+     이미지 로드 실패 시 → 파일명이 표시된 회색 플레이스홀더로 교체
+     ------------------------------------------------------------ */
+  document.querySelectorAll("img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      const box = document.createElement("div");
+      box.className = "ph-fallback";
+      box.textContent = img.getAttribute("src").replace("./", "");
+      img.replaceWith(box);
+    });
+  });
+
+  /* ------------------------------------------------------------
+     비밀번호 검증
+     ------------------------------------------------------------ */
+  const pwInput = document.getElementById("pw-input");
+  const pwCheck = document.getElementById("pw-check");
+  const pwSuccess = document.getElementById("pw-success");
+  const pwError = document.getElementById("pw-error");
+
+  function checkPassword() {
+    const value = pwInput.value.trim();
+    if (value === PASSWORD) {
+      pwError.hidden = true;
+      pwSuccess.hidden = false;
+    } else {
+      pwSuccess.hidden = true;
+      pwError.hidden = false;
+      pwInput.classList.remove("shake");
+      // reflow를 강제해서 연속 오답에도 흔들림 애니메이션이 다시 재생되게 함
+      void pwInput.offsetWidth;
+      pwInput.classList.add("shake");
+    }
+  }
+
+  pwCheck.addEventListener("click", checkPassword);
+  pwInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") checkPassword();
+  });
+
+  /* ------------------------------------------------------------
+     스크롤 페이드인
+     ------------------------------------------------------------ */
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  document.querySelectorAll(".fade").forEach(function (el) {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
