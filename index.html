@@ -351,6 +351,21 @@
     text-align: center;
     margin-top: 32px;
   }
+  /* 제목: 화면 폭에 맞춰 글자 크기가 줄어들어 항상 한 줄 유지 */
+  .ebook-title-main {
+    display: block;
+    font-size: clamp(15px, 4.7vw, 24px);
+    white-space: nowrap;
+  }
+  /* 부제: 한 단계 작게, 2줄 허용 */
+  .ebook-title-sub {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
   .ebook-title strong {
     display: block;
     font-size: 15px;
@@ -632,7 +647,7 @@
         <p class="copy">
           지금부터 그 지난 9개월의 과정을 꾸밈없이 보여드리겠습니다.<br>
           그리고 이 페이지 마지막에, <br>
-          9개월간의 내용을 압축한 전자책<br>
+          9개월간의 내용을 압축한<br>
           <span class="num">《운동하지 마세요, 드라마 보러 가세요》</span>전자책을 받아가세요.
         </p>
       </div>
@@ -955,7 +970,7 @@
     <div class="photo fade">
       <img src="./assets/20-daegu.jpg" loading="lazy" alt="마라톤 전날 대구행 기차">
     </div>
-    <p class="copy fade">대망의 마라톤 전날, 대구행 기차를 탔습니다.</p>
+    <p class="copy fade">대망의 마라톤 전날, KTX타고 대구에 도착했습니다.</p>
 
     <div class="photo fade" style="margin-top: 48px;">
       <img src="./assets/smartchip.png" loading="lazy" alt="풀코스 공식 기록 화면">
@@ -995,7 +1010,10 @@
     <div class="photo fade" style="margin-top: 40px;">
       <img src="./assets/ebook-cover.jpg" loading="lazy" alt="전자책 표지">
     </div>
-    <p class="ebook-title fade">《운동하지 마세요, 드라마 보러 가세요》<br>5km도 못 뛰던 39살이 9개월 만에 풀코스 마라톤을 완주한 습관 설계법</p>
+    <p class="ebook-title fade">
+      <span class="ebook-title-main">《운동하지 마세요, 드라마 보러 가세요》</span>
+      <span class="ebook-title-sub">5km도 못 뛰던 39살이 9개월 만에<br>풀코스 마라톤을 완주한 습관 설계법</span>
+    </p>
 
     <ul class="benefit-list fade">
       <li>
