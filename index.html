@@ -1084,12 +1084,6 @@
 </footer>
 
 <script>
-  /* ============================================================
-     ★ 비밀번호 — 여기서 변경하세요 ★
-     제품 패키지 카드에 인쇄된 비밀번호와 동일하게 맞추면 됩니다.
-     ============================================================ */
-  const PASSWORD = "TEMP1234";
-
   /* ------------------------------------------------------------
      이미지 로드 실패 시 → 파일명이 표시된 회색 플레이스홀더로 교체
      ------------------------------------------------------------ */
@@ -1100,34 +1094,6 @@
       box.textContent = img.getAttribute("src").replace("./", "");
       img.replaceWith(box);
     });
-  });
-
-  /* ------------------------------------------------------------
-     비밀번호 검증
-     ------------------------------------------------------------ */
-  const pwInput = document.getElementById("pw-input");
-  const pwCheck = document.getElementById("pw-check");
-  const pwSuccess = document.getElementById("pw-success");
-  const pwError = document.getElementById("pw-error");
-
-  function checkPassword() {
-    const value = pwInput.value.trim();
-    if (value === PASSWORD) {
-      pwError.hidden = true;
-      pwSuccess.hidden = false;
-    } else {
-      pwSuccess.hidden = true;
-      pwError.hidden = false;
-      pwInput.classList.remove("shake");
-      // reflow를 강제해서 연속 오답에도 흔들림 애니메이션이 다시 재생되게 함
-      void pwInput.offsetWidth;
-      pwInput.classList.add("shake");
-    }
-  }
-
-  pwCheck.addEventListener("click", checkPassword);
-  pwInput.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") checkPassword();
   });
 
   /* ------------------------------------------------------------
