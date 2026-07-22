@@ -398,26 +398,25 @@
   }
   @media (max-width: 480px) {
     .ebook-showcase {
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
+      gap: 16px;
     }
-    .ebook-info {
-      text-align: center;
+    .ebook-cover img {
+      max-width: 120px;
+      max-height: 180px;
+    }
+    .ebook-info .copy {
+      font-size: 14px;
+      line-height: 1.75;
+      margin-top: 0;
     }
   }
 
   .benefit-list {
     list-style: none;
     margin-top: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 14px;
-  }
-  @media (max-width: 640px) {
-    .benefit-list {
-      grid-template-columns: 1fr;
-    }
   }
   .benefit-list li {
     background: var(--bg-soft);
@@ -620,9 +619,9 @@
       <img src="./assets/race-photo.jpg" loading="lazy" alt="마라톤 레이스 중 사진">
     </div>
     <p class="copy fade">
-      타고난 체력? 그런건 없었습니다.<br>
-      독한 의지? 그것도 없었습니다.<br>
-      제게 있었던 건 <span class="num">'꾸준히 할 수 있는 계획' </span>하나였습니다.
+      타고난 체력? 독한 의지?<br>
+      그런건 없었습니다.<br>
+      오직 <span class="num">'꾸준히 할 수 있는 계획' </span>하나였습니다.
     </p>
     <div class="ebook-showcase fade">
       <div class="ebook-cover">
@@ -659,7 +658,8 @@
       <img src="./assets/01-before.jpg" loading="lazy" alt="운동 시작 전 모습">
     </div>
     <p class="copy fade">
-      야식은 습관이었고, 운동은 늘 육아 핑계로 미뤘습니다.<br>
+      야식은 습관이었고, <br>
+      운동은 늘 육아 핑계로 미뤘습니다.<br><br>
       배가 뽈록 나온 39살.<br>
       <span class="num">늘 미루는 삶을 살고 있었습니다.</span>
     </p>
@@ -713,7 +713,8 @@
     <h2 class="headline fade" style="margin-top: 72px;">가장 많이 포기하는 첫 3개월(+여름더위)</h2>
     <p class="copy fade">
       저는 실내에서 버텼습니다.<br>
-      날씨 핑계가 사라지니, <span class="num">빠질 이유도 함께 사라졌습니다.</span>
+      날씨 핑계가 사라지니, <br>
+      <span class="num">빠질 이유도 함께 사라졌습니다.</span>
     </p>
 
     <div class="tm-grid fade">
@@ -782,7 +783,7 @@
     <p class="copy fade">
       저는 운동을 간다고 생각하지 않았습니다.<br>
       드라마, 영화를 60분씩 보러 갔습니다.<br>
-      <span class="num">뛰고싶지 않은날은 걸었습니다. 그래도 충분했습니다.</span>
+      <span class="num">뛰고싶지 않은날은 걸었습니다.<br> 그래도 충분했습니다.</span>
     </p>
   </div>
 </section>
@@ -793,12 +794,12 @@
 <section class="bridge">
   <div class="container">
     <p class="big fade">
-      여기까지가, 사실 여러분에게 필요한 전부입니다.<br>
+      여기까지가,<br> 사실 여러분에게 필요한 전부입니다.<br>
       <span class="num">첫 3개월까지 그저 재미있게 즐기는것</span>
     </p>
     <p class="small fade">
-      이후부터는<br>
-      습관이 자연스럽게 우리를 이끌어 주게 됩니다.<br>
+      이후부터는 습관이 자연스럽게<br>
+       우리를 이끌어 주게 됩니다.<br>
     </p>
   </div>
 </section>
@@ -808,7 +809,7 @@
      ============================================================ -->
 <section>
   <div class="container">
-    <h2 class="headline fade">관성의 법칙, 습관의 힘이 만든 제 기록입니다.</h2>
+    <h2 class="headline fade">관성의 법칙,<br>습관의 힘이 만든 제 기록입니다.</h2>
 
     <div class="photo fade">
       <img src="./assets/10-steps-1year.jpg" loading="lazy" alt="애플워치 1년 치 걸음 수 그래프">
@@ -864,7 +865,8 @@
       <img src="./assets/38-daegu-receipt.jpg" loading="lazy" alt="풀코스 마라톤 신청 완료 영수증">
     </div>
     <p class="copy fade">
-      9월쯤 되자 자연스레 <span class="num">'풀코스 마라톤'</span>에 흥미가 생겼습니다.<br>
+      9월쯤 되자 자연스레 <br>
+      <span class="num">'풀코스 마라톤'</span>에 흥미가 생겼습니다.<br>
       처음 시작할 땐 상상도 못했던 일이었습니다.<br>
     </p>
 
@@ -878,7 +880,8 @@
       저도 모르는 새 많이 성장한것을 확인했습니다.
     </p>
 
-    <h2 class="headline fade" style="margin-top: 56px;">6개월 사이, 얼굴도 눈에 띄게 달라졌습니다</h2>
+    <h2 class="headline fade" style="margin-top: 56px;">6개월 사이, <br>
+      얼굴도 눈에 띄게 달라졌습니다</h2>
     <div class="ba-grid fade">
       <div class="photo">
         <img src="./assets/08-tm-2.5.jpg" loading="lazy" alt="2025년 5월 배가 나온 모습">
@@ -894,7 +897,8 @@
       그저 <span class="num">꾸준함이 가져온 변화</span>였습니다.
     </p>
 
-    <h2 class="headline fade" style="margin-top: 56px;">한번 자리잡힌 습관으로, 겨울에도 멈춰지지 않았습니다</h2>
+    <h2 class="headline fade" style="margin-top: 56px;">한번 자리잡힌 습관으로,<br>
+       겨울에도 멈춰지지 않았습니다</h2>
     <div class="ba-grid fade">
       <div class="photo">
         <img src="./assets/16-weather.jpg" loading="lazy" alt="체감온도 영하 13도 날씨 화면">
@@ -916,7 +920,8 @@
     </div>
     <p class="copy fade">
       문득 더 멀리 뛰고 싶어, 새벽 3시에 나왔습니다.<br>
-      2025년 마지막 날이었지만, <span class="num">습관은 저를 또 뛰게 만들었습니다.</span>
+      2025년 마지막 날이었지만, <br>
+      <span class="num">습관은 저를 또 뛰게 만들었습니다.</span>
     </p>
     <div class="photo fade" style="margin-top: 40px;">
       <img src="./assets/27-nike-30km-dec31.jpg" loading="lazy" alt="12월 31일 나이키 러닝 기록 30km">
@@ -939,7 +944,8 @@
       <img src="./assets/34-nike-4249-jan27.jpg" loading="lazy" alt="1월 27일 나이키 러닝 기록 42.49km">
     </div>
     <p class="copy fade">
-      그러던 1월 어느날, 인생 첫 <span class="num">42.49km</span>를 뛰었습니다.<br>
+      그러던 1월 어느날, <br>
+      인생 첫 <span class="num">42.49km</span>를 뛰었습니다.<br>
       평일이라서 씻고나서 바로 출근까지 했습니다.<br>
       마흔 살인데, 오히려 제 20대 시절보다도 체력이 좋아졌습니다.
     </p>
