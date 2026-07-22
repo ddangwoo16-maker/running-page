@@ -95,6 +95,29 @@
 
   .photo + .photo { margin-top: 16px; }
 
+  /* 사진 2장 나란히 + 각 사진 아래 캡션 */
+  .duo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+    margin-top: 32px;
+  }
+  .duo-grid figure { margin: 0; }
+  .duo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+  .duo-grid .duo-caption {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    text-align: center;
+  }
+
   /* ============================================================
      스크롤 페이드인 (과하지 않게)
      ============================================================ */
@@ -214,9 +237,9 @@
     bottom: 8px;
     background: rgba(22, 24, 29, 0.75);
     color: var(--gold);
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 3px 10px;
     border-radius: 6px;
     letter-spacing: 0.04em;
   }
@@ -774,20 +797,16 @@
 <section>
   <div class="container">
     <div class="fade"><span class="section-label">2025년 5월, 첫 운동 날</span></div>
-    <div class="photo fade">
-      <img src="./assets/02-walk-may.jpg" width="1170" height="1923" loading="lazy" alt="5월 새벽 걷기 기록">
+    <div class="duo-grid fade">
+      <figure>
+        <img src="./assets/02-walk-may.jpg" width="1170" height="1923" loading="lazy" alt="5월 새벽 걷기 기록">
+        <figcaption class="duo-caption">새벽 6시 반, <span class="num">뛰지 않고 걸었습니다.</span> 나에게 스트레스를 주지 않는데 집중했습니다.</figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/03-walk-june.jpg" width="1170" height="1943" loading="lazy" alt="6월 새벽 걷기 기록">
+        <figcaption class="duo-caption">저에게 가장 잘 맞는 시간대를 찾기위해 출근 전 시간을 택했습니다.</figcaption>
+      </figure>
     </div>
-    <p class="copy fade">
-      새벽 6시 반, <span class="num">뛰지 않고 걸었습니다.</span><br>
-      나에게 스트레스를 주지 않는데 집중했습니다.
-    </p>
-    <div class="photo fade" style="margin-top: 40px;">
-      <img src="./assets/03-walk-june.jpg" width="1170" height="1943" loading="lazy" alt="6월 새벽 걷기 기록">
-    </div>
-    <p class="copy fade">
-      저에게 가장 잘 맞는 시간대를 찾기위해<br>
-      출근 전 시간을 택했습니다.
-    </p>
 
     <h2 class="headline fade" style="margin-top: 72px;">가장 많이 포기하는<br> 첫 3개월</h2>
     <p class="copy fade">
@@ -886,7 +905,7 @@
       카카오톡으로 주문번호 보내기
     </a>
 
-    <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 시간 내) 보내드립니다.<br>늦어도 24시간을 넘기지 않습니다.</p>
+    <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 분 내) 보내드립니다.</p>
 
     <p class="guide fade" style="margin-top: 56px;"><strong>전자책을 무료로 받을 수 있는 제품</strong></p>
     <div class="products fade">
@@ -895,7 +914,7 @@
           <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
         </a>
         <p class="name">런닝머신 핸드폰 거치대</p>
-        <p class="desc">W거치대<br>"운동하러 가는 날"을 "다음 화 보러 가는 날"로 바꿔준 도구입니다.</p>
+        <p class="desc">W거치대<br>런닝이 즐거워지는 런닝머신 전용 거치대 입니다.</p>
         <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">스토어에서 보기</a>
       </div>
       <div class="product-card">
@@ -903,7 +922,7 @@
           <img src="./assets/product-helfix.png" loading="lazy" alt="헬픽스">
         </a>
         <p class="name">헬픽스</p>
-        <p class="desc">근력 운동 시간도 "재미있는 시간"으로 바꿔준 도구 입니다</p>
+        <p class="desc">강력자석으로 헬스장 어디든 부착하여 영상시청 가능한 거치대 입니다.</p>
         <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">스토어에서 보기</a>
       </div>
     </div>
@@ -1175,7 +1194,7 @@
       카카오톡으로 주문번호 보내기
     </a>
 
-    <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 시간 내) 보내드립니다.<br>늦어도 24시간을 넘기지 않습니다.</p>
+    <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 분 내) 보내드립니다.</p>
 
     <p class="guide fade" style="margin-top: 56px;"><strong>전자책을 무료로 받을 수 있는 제품</strong></p>
     <div class="products fade">
@@ -1184,7 +1203,7 @@
           <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
         </a>
         <p class="name">런닝머신 핸드폰 거치대</p>
-        <p class="desc">W거치대<br>"운동하러 가는 날"을 "다음 화 보러 가는 날"로 바꿔준 도구입니다.</p>
+        <p class="desc">W거치대<br>런닝이 즐거워지는 런닝머신 전용 거치대 입니다.</p>
         <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">스토어에서 보기</a>
       </div>
       <div class="product-card">
@@ -1192,7 +1211,7 @@
           <img src="./assets/product-helfix.png" loading="lazy" alt="헬픽스">
         </a>
         <p class="name">헬픽스</p>
-        <p class="desc">근력 운동 시간도 "재미있는 시간"으로 바꿔준 도구 입니다</p>
+        <p class="desc">강력자석으로 헬스장 어디든 부착하여 영상시청 가능한 거치대 입니다.</p>
         <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">스토어에서 보기</a>
       </div>
     </div>
