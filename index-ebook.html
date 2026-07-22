@@ -537,98 +537,6 @@
     75% { transform: translateX(5px); }
   }
 
-  /* 가격 앵커 (정가 → 0원) */
-  .price-row {
-    margin-top: 28px;
-    font-size: 19px;
-    font-weight: 700;
-  }
-  .price-old {
-    color: var(--text-dim);
-    text-decoration: line-through;
-    text-decoration-thickness: 2px;
-    font-weight: 500;
-  }
-  .price-arrow { color: var(--text-dim); margin: 0 8px; font-weight: 400; }
-  .price-new { color: var(--gold); font-size: 24px; font-weight: 800; }
-  .price-note { margin-top: 10px; font-size: 13px; color: var(--text-dim); }
-
-  /* 받는 방법 3단계 */
-  .step-list {
-    list-style: none;
-    margin-top: 20px;
-    counter-reset: step;
-  }
-  .step-list li {
-    position: relative;
-    padding-left: 40px;
-    counter-increment: step;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-  .step-list li + li { margin-top: 16px; }
-  .step-list li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* 전달 시간 안내 */
-  .delivery-note {
-    margin-top: 14px;
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.7;
-  }
-
-  /* 오퍼 안의 제품 카드 */
-  .products {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 32px;
-  }
-  .product-card {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .product-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-  }
-  .product-card .ph-fallback { aspect-ratio: 1 / 1; border-radius: 8px; }
-  .product-card .name { font-size: 15px; font-weight: 700; }
-  .product-card .desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
-  .product-card a {
-    font-size: 13px;
-    color: var(--text-dim);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  @media (max-width: 360px) {
-    .products { grid-template-columns: 1fr; }
-  }
-
   /* ============================================================
      푸터 (클로징)
      ============================================================ */
@@ -802,6 +710,10 @@
         <span class="tm-date">7.16</span>
       </div>
       <div class="tm-item">
+        <img src="./assets/04-tm-2.jpg" loading="lazy" alt="7월 17일 런닝머신 기록">
+        <span class="tm-date">7.17</span>
+      </div>
+      <div class="tm-item">
         <img src="./assets/04-tm-3.jpg" loading="lazy" alt="7월 31일 런닝머신 기록">
         <span class="tm-date">7.31</span>
       </div>
@@ -810,12 +722,28 @@
         <span class="tm-date">8.1</span>
       </div>
       <div class="tm-item">
+        <img src="./assets/08-tm-2.jpg" loading="lazy" alt="8월 5일 런닝머신 기록">
+        <span class="tm-date">8.5</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-3.jpg" loading="lazy" alt="8월 6일 런닝머신 기록">
+        <span class="tm-date">8.6</span>
+      </div>
+      <div class="tm-item">
         <img src="./assets/08-tm-4.jpg" loading="lazy" alt="8월 7일 런닝머신 기록">
         <span class="tm-date">8.7</span>
       </div>
       <div class="tm-item">
+        <img src="./assets/08-tm-5.jpg" loading="lazy" alt="8월 8일 런닝머신 기록">
+        <span class="tm-date">8.8</span>
+      </div>
+      <div class="tm-item">
         <img src="./assets/08-tm-6.jpg" loading="lazy" alt="8월 13일 런닝머신 기록">
         <span class="tm-date">8.13</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-7.jpg" loading="lazy" alt="8월 14일 런닝머신 기록">
+        <span class="tm-date">8.14</span>
       </div>
       <div class="tm-item">
         <img src="./assets/08-tm-8.jpg" loading="lazy" alt="8월 22일 런닝머신 기록">
@@ -824,6 +752,10 @@
       <div class="tm-item">
         <img src="./assets/08-tm-9.jpg" loading="lazy" alt="8월 27일 런닝머신 기록">
         <span class="tm-date">8.27</span>
+      </div>
+      <div class="tm-item">
+        <img src="./assets/08-tm-10.jpg" loading="lazy" alt="8월 28일 런닝머신 기록">
+        <span class="tm-date">8.28</span>
       </div>
       <div class="tm-item">
         <img src="./assets/09-tm-1.jpg" loading="lazy" alt="9월 11일 런닝머신 기록">
@@ -856,57 +788,6 @@
       이후부터는 습관이 자연스럽게<br>
        우리를 이끌어 주게 됩니다.<br>
     </p>
-  </div>
-</section>
-
-<!-- ============================================================
-     섹션5.6 — 오퍼: 받는 방법 (구매인증 + 제품)
-     ============================================================ -->
-<section class="download" id="download">
-  <div class="container">
-    <h2 class="fade">지금 거치대를 구매하시면,<br>
-      29,700원짜리 이 전자책이 <span class="num">공짜</span>입니다.</h2>
-
-    <p class="price-row fade">
-      정가 <s class="price-old">29,700원</s><span class="price-arrow">→</span><span class="price-new">0원</span>
-    </p>
-    <p class="price-note fade">(전자책 단독 구매도 29,700원에 가능합니다)</p>
-
-    <p class="guide fade" style="margin-top: 48px;"><strong>받는 방법은 3단계, 1분이면 끝납니다.</strong></p>
-    <ol class="step-list fade">
-      <li>아래 제품 중 하나를 구매합니다</li>
-      <li>카카오톡 채널로 주문번호를 보내주세요</li>
-      <li>전자책 파일과 비밀번호를 보내드립니다</li>
-    </ol>
-
-    <a class="btn btn--kakao fade" href="http://pf.kakao.com/_Rtxkxoxj/chat" target="_blank" rel="noopener" style="margin-top: 28px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919" aria-hidden="true">
-        <path d="M12 3C6.48 3 2 6.54 2 10.9c0 2.8 1.86 5.26 4.66 6.65-.15.53-.97 3.36-1 3.58 0 0-.02.17.09.24.11.06.24.01.24.01.32-.04 3.66-2.4 4.24-2.81.57.08 1.16.13 1.77.13 5.52 0 10-3.54 10-7.9S17.52 3 12 3z"/>
-      </svg>
-      카카오톡으로 주문번호 보내기
-    </a>
-
-    <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 시간 내) 보내드립니다.<br>늦어도 24시간을 넘기지 않습니다.</p>
-
-    <p class="guide fade" style="margin-top: 56px;"><strong>전자책을 무료로 받을 수 있는 제품</strong></p>
-    <div class="products fade">
-      <div class="product-card">
-        <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">
-          <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
-        </a>
-        <p class="name">런닝머신 핸드폰 거치대</p>
-        <p class="desc">W거치대<br>"운동하러 가는 날"을 "다음 화 보러 가는 날"로 바꿔준 도구입니다.</p>
-        <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">스토어에서 보기</a>
-      </div>
-      <div class="product-card">
-        <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">
-          <img src="./assets/product-helfix.png" loading="lazy" alt="헬픽스">
-        </a>
-        <p class="name">헬픽스</p>
-        <p class="desc">근력 운동 시간도 "재미있는 시간"으로 바꿔준 도구 입니다</p>
-        <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">스토어에서 보기</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1149,53 +1030,23 @@
 </section>
 
 <!-- ============================================================
-     섹션9 — 오퍼: 받는 방법 (구매인증 + 제품, 하단 반복)
+     섹션9 — 오퍼: 전자책 구매
      ============================================================ -->
-<section class="download" id="download-bottom">
+<section class="download" id="download">
   <div class="container">
-    <h2 class="fade">지금 거치대를 구매하시면,<br>
-      29,700원짜리 이 전자책이 <span class="num">공짜</span>입니다.</h2>
-
-    <p class="price-row fade">
-      정가 <s class="price-old">29,700원</s><span class="price-arrow">→</span><span class="price-new">0원</span>
+    <h2 class="fade">전자책은 <br>
+      29,700원에 구매 가능합니다.</h2>
+    <p class="guide fade">
+      아래 버튼으로 채팅을 남겨주시면<br>
+      <span class="num">구매 방법과 전자책 전달</span>을 바로 안내해 드립니다.
     </p>
-    <p class="price-note fade">(전자책 단독 구매도 29,700원에 가능합니다)</p>
-
-    <p class="guide fade" style="margin-top: 48px;"><strong>받는 방법은 3단계, 1분이면 끝납니다.</strong></p>
-    <ol class="step-list fade">
-      <li>아래 제품 중 하나를 구매합니다</li>
-      <li>카카오톡 채널로 주문번호를 보내주세요</li>
-      <li>전자책 파일과 비밀번호를 보내드립니다</li>
-    </ol>
 
     <a class="btn btn--kakao fade" href="http://pf.kakao.com/_Rtxkxoxj/chat" target="_blank" rel="noopener" style="margin-top: 28px;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919" aria-hidden="true">
         <path d="M12 3C6.48 3 2 6.54 2 10.9c0 2.8 1.86 5.26 4.66 6.65-.15.53-.97 3.36-1 3.58 0 0-.02.17.09.24.11.06.24.01.24.01.32-.04 3.66-2.4 4.24-2.81.57.08 1.16.13 1.77.13 5.52 0 10-3.54 10-7.9S17.52 3 12 3z"/>
       </svg>
-      카카오톡으로 주문번호 보내기
+      카카오톡으로 구매하기
     </a>
-
-    <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 시간 내) 보내드립니다.<br>늦어도 24시간을 넘기지 않습니다.</p>
-
-    <p class="guide fade" style="margin-top: 56px;"><strong>전자책을 무료로 받을 수 있는 제품</strong></p>
-    <div class="products fade">
-      <div class="product-card">
-        <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">
-          <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
-        </a>
-        <p class="name">런닝머신 핸드폰 거치대</p>
-        <p class="desc">W거치대<br>"운동하러 가는 날"을 "다음 화 보러 가는 날"로 바꿔준 도구입니다.</p>
-        <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">스토어에서 보기</a>
-      </div>
-      <div class="product-card">
-        <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">
-          <img src="./assets/product-helfix.png" loading="lazy" alt="헬픽스">
-        </a>
-        <p class="name">헬픽스</p>
-        <p class="desc">근력 운동 시간도 "재미있는 시간"으로 바꿔준 도구 입니다</p>
-        <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener">스토어에서 보기</a>
-      </div>
-    </div>
   </div>
 </section>
 
