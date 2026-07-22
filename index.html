@@ -359,12 +359,65 @@
     line-height: 1.7;
     letter-spacing: -0.01em;
   }
+
+  /* ============================================================
+     전자책 쇼케이스
+     ============================================================ */
+  .ebook-showcase {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    margin-top: 48px;
+  }
+  .ebook-cover {
+    flex-shrink: 0;
+  }
+  .ebook-cover img {
+    max-width: 180px;
+    max-height: 270px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+  .ebook-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .ebook-info h3 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .ebook-info p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-dim);
+  }
+  @media (max-width: 480px) {
+    .ebook-showcase {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    .ebook-info {
+      text-align: center;
+    }
+  }
+
   .benefit-list {
     list-style: none;
     margin-top: 40px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 14px;
+  }
+  @media (max-width: 640px) {
+    .benefit-list {
+      grid-template-columns: 1fr;
+    }
   }
   .benefit-list li {
     background: var(--bg-soft);
@@ -571,12 +624,19 @@
       독한 의지? 그것도 없었습니다.<br>
       제게 있었던 건 <span class="num">'꾸준히 할 수 있는 계획' </span>하나였습니다.
     </p>
-    <p class="copy fade">
-      지금부터 그 지난 9개월의 과정을 꾸밈없이 보여드리겠습니다.<br>
-      그리고 이 페이지 마지막에, <br>
-      9개월간의 내용을 압축한 전자책<br>
-<span class="num">《운동하지 마세요, 드라마 보러 가세요》</span>를 통째로 드립니다.
-    </p>
+    <div class="ebook-showcase fade">
+      <div class="ebook-cover">
+        <img src="./assets/ebook-cover.jpg" loading="lazy" alt="전자책 표지">
+      </div>
+      <div class="ebook-info">
+        <p class="copy">
+          지금부터 그 지난 9개월의 과정을 꾸밈없이 보여드리겠습니다.<br>
+          그리고 이 페이지 마지막에, <br>
+          9개월간의 내용을 압축한 전자책<br>
+          <span class="num">《운동하지 마세요, 드라마 보러 가세요》</span>를 통째로 드립니다.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -986,8 +1046,8 @@
   <div class="container">
     <h2 class="fade">이 전자책은 29,700원에 구입 가능합니다.</h2>
     <p class="guide fade">
-      다만, 아래 제품 구매 후 <span class="num">구매인증(주문번호)</span>을 해주시면<br>
-      전자책 PDF파일 다운로드 링크와 비밀번호를 전달 드립니다.
+      단, 아래 제품 구매 후 <span class="num">구매인증(주문번호)</span>을 해주시면<br>
+      무료로 전자책과 비밀번호를 전달 드립니다.
     </p>
 
     <a class="btn btn--kakao fade" href="http://pf.kakao.com/_Rtxkxoxj/chat" target="_blank" rel="noopener">
