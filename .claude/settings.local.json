@@ -3,7 +3,8 @@
     "allow": [
       "PowerShell(Copy-Item \"C:\\\\Users\\\\ddang\\\\Desktop\\\\cho\\\\index.html\" \"C:\\\\Users\\\\ddang\\\\Desktop\\\\cho\\\\index_v1_backup.html\")",
       "PowerShell(Rename-Item \"C:\\\\Users\\\\ddang\\\\Desktop\\\\cho\\\\assets\\\\product-w.jpg.png\" \"product-w.png\")",
-      "PowerShell(Rename-Item \"C:\\\\Users\\\\ddang\\\\Desktop\\\\cho\\\\assets\\\\product-helfix.jpg.png\" \"product-helfix.png\")"
+      "PowerShell(Rename-Item \"C:\\\\Users\\\\ddang\\\\Desktop\\\\cho\\\\assets\\\\product-helfix.jpg.png\" \"product-helfix.png\")",
+      "Bash(git mv *)"
     ]
   }
 }
