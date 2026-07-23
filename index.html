@@ -61,7 +61,7 @@
   }
   .photo .date-label {
     align-self: flex-start;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--gold);
     letter-spacing: 0.06em;
@@ -174,7 +174,7 @@
      ============================================================ */
   .section-label {
     display: inline-block;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--gold);
     letter-spacing: 0.08em;
@@ -201,6 +201,14 @@
     font-weight: 700;
     line-height: 1.7;
   }
+  .frame-box {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg-soft);
+    padding: 20px 20px;
+  }
+  .frame-box p { margin-top: 0; }
+  .frame-box p + p { margin-top: 16px; }
 
   /* ============================================================
      런닝머신 인증 그리드 (15장 → 6장 압축)
@@ -561,7 +569,9 @@
     font-weight: 500;
   }
   .price-arrow { color: var(--text-dim); margin: 0 8px; font-weight: 400; }
-  .price-new { color: var(--gold); font-size: 24px; font-weight: 800; }
+  .price-new { color: var(--gold); font-size: 38px; font-weight: 800; }
+  .price-new-label { color: #fff; font-size: 38px; font-weight: 800; margin-right: 6px; }
+  .price-old-label { font-size: 14px; color: var(--text-dim); font-weight: 500; margin-left: 10px; }
   .price-note { margin-top: 10px; font-size: 13px; color: var(--text-dim); }
 
   /* 받는 방법 3단계 */
@@ -640,9 +650,10 @@
   /* 마케팅 심리학 요소 */
   .loss-aversion {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #ff9500;
+    text-align: center;
   }
   .social-proof {
     margin-top: 12px;
@@ -702,12 +713,12 @@
 <section class="hero">
   <div class="container">
     <h1 class="fade">
-      런닝머신에서의 10분,<br>
+      런닝머신 10분,<br>
       지루해서 오래하기 힘들죠.
     </h1>
     <div class="photo fade">
       <img src="./assets/hero-treadmill.png" width="1448" height="1086" loading="lazy" alt="런닝머신 계기판, 9분 50초">
-      <p class="ba-caption">런닝머신 위의 9분 50초</p>
+      <p class="ba-caption">런닝머신 대시보드</p>
     </div>
     <p class="punch fade">
       장담컨대, 이건 <span class="num">의지의 문제가 절대 아닙니다.</span>
@@ -754,15 +765,15 @@
      ============================================================ -->
 <section>
   <div class="container">
-    <h2 class="headline fade">새해 운동 결말은 대개 비슷합니다</h2>
+    <h2 class="headline fade" style="color: var(--gold);">새해 운동 결말은 대개 비슷합니다</h2>
     <p class="copy fade">
       1월, 의욕적으로 헬스장을 결제하지만<br>
       3월이면 출석률이 눈에 띄게 줄어듭니다.<br>
     </p>
     <p class="copy copy--strong fade">저도 똑같았습니다.</p>
 
-    <div class="photo fade" style="margin-top: 40px;">
-      <span class="date-label">2024년 11월</span>
+    <div class="fade"><span class="section-label">2024년 11월</span></div>
+    <div class="photo fade">
       <img src="./assets/01-before.jpg" width="1170" height="1933" loading="lazy" alt="운동 시작 전 모습">
     </div>
     <p class="copy fade">
@@ -781,15 +792,19 @@
   <div class="container">
     <h2 class="headline fade">꾸준히 못하는 진짜 이유는</h2>
     <p class="copy copy--strong fade">
-      ① "재미가 없어서" 입니다.<br>
-      ② "내 수준보다 높은 계획" 때문입니다.
+      ① <span class="num" style="text-decoration: underline;">"재미가 없어서"</span> 입니다.<br>
+      ② <span class="num" style="text-decoration: underline;">"내 수준보다 높은 계획"</span> 때문입니다.
     </p>
     <p class="copy fade">그래서 저는 딱 두 가지만 바꿨습니다.</p>
+    <div class="frame-box fade">
+      <p class="copy">
+        하나, <br><span class="num">뛰지 않고 걷기부터 시작했습니다.</span>
+      </p>
+      <p class="copy">
+        둘, <br><span class="num">운동을'재밌고 기다려지는 시간'으로 만들었습니다.</span>
+      </p>
+    </div>
     <p class="copy fade">
-      하나, <br><span class="num">뛰지 않고 걷기부터 시작했습니다.</span>
-    </p>
-    <p class="copy fade">
-      둘, <br><span class="num">운동을'재밌고 기다려지는 시간'으로 만들었습니다.</span><br><br>
       어떻게 이런일이 가능했을까요?<br>
       지금부터 하나하나 설명드리겠습니다.
     </p>
@@ -870,7 +885,7 @@
       <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d">
         <img src="./assets/product-w.png" width="1915" height="821" loading="lazy" alt="W거치대 제품">
       </a>
-      <p style="font-size: 12px; color: var(--text-dim); margin-top: 8px;">이미지를 누르면 제품상세보기로 이동됩니다</p>
+      <p style="font-size: 12px; color: var(--text-dim); margin-top: 8px;">이미지를 누르면 상세정보를 볼 수 있습니다.</p>
     </div>
 
     <p class="copy fade">
@@ -895,8 +910,8 @@
 <section class="bridge">
   <div class="container">
     <p class="big fade">
-      첫 3개월을 재미있게 버티는 것<br>
-      이 원리는 누구나 다 알죠.
+      첫 3개월을 재미있게 만들어라?<br>
+      이런건 누구나 다 알죠.
     </p>
     <p class="small fade">
       그런데 대부분 여기서 실패합니다.
@@ -931,12 +946,12 @@
       29,700원짜리 이 전자책이 <span class="num">공짜</span>입니다.</h2>
 
     <p class="price-row fade">
-      정가 <s class="price-old">29,700원</s><span class="price-arrow">→</span><span class="price-new">0원</span>
+      <span class="price-new-label">전자책</span><span class="price-new">0원</span><span class="price-old-label">정가 <s class="price-old">29,700원</s></span>
     </p>
-    <p class="social-proof fade">⭐ 1,834명이 지난 7일간 다운로드</p>
-    <p class="price-note fade">(전자책 단독 구매도 29,700원에 가능합니다)</p>
+    <p class="social-proof fade">⭐ 119명이 지난 30일간 다운로드</p>
+    <p class="price-note fade">(0원 혜택은 제품 구매고객분들에게만 제공됩니다. 양해부탁드립니다.)</p>
 
-    <p class="guide fade" style="margin-top: 48px;"><strong>받는 방법은 2단계, 1분이면 끝납니다.</strong></p>
+    <p class="guide fade" style="margin-top: 48px;"><strong>전자책 받는법 1분이면 끝</strong></p>
     <ol class="step-list fade">
       <li>제품을 선택해서 구매합니다</li>
       <li>카톡으로 주문번호 보내면 전자책 받기 끝</li>
@@ -952,14 +967,13 @@
     </a>
 
     <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 분 내) 보내드립니다.</p>
-    <p class="urgency-text fade">⏰ 구매자 무료배포 이벤트는 별도 안내사항없이 종료 될 수 있습니다.</p>
+    <p class="urgency-text fade">⏰ 거치대 구매고객 한정 전자책 제공 혜택은 별도 공지없이 종료 될 수 있으므로 서둘러주세요.</p>
 
     <div class="fade" style="margin-top: 56px;">
-      <div class="fomo-badge fade">🔥 지금 다운로드한 고객들만 무료</div>
+      <div class="fomo-badge fade">🔥 거치대 구매시 전자책 무료</div>
     </div>
 
-    <p class="guide fade" style="margin-top: 16px;"><strong>전자책을 무료로 받을 수 있는 제품</strong></p>
-    <div class="products fade">
+    <div class="products fade" style="margin-top: 32px;">
       <div class="product-card">
         <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">
           <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
@@ -974,7 +988,7 @@
         </a>
         <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener" style="display: inline-block; margin-top: 12px; margin-bottom: 16px; font-size: 13px; color: var(--text-dim); font-weight: 600; text-decoration: underline;">스토어에서 보기</a>
         <p class="name">헬픽스</p>
-        <p class="desc">강력자석으로 헬스장 어디든 부착하여 영상시청 가능한 거치대 입니다.</p>
+        <p class="desc">강력자석으로 헬스장 어디든 부착하여 영상보며 운동하세요.</p>
         
     
       </div>
@@ -1226,12 +1240,12 @@
       29,700원짜리 이 전자책이 <span class="num">공짜</span>입니다.</h2>
 
     <p class="price-row fade">
-      정가 <s class="price-old">29,700원</s><span class="price-arrow">→</span><span class="price-new">0원</span>
+      <span class="price-new-label">전자책</span><span class="price-new">0원</span><span class="price-old-label">정가 <s class="price-old">29,700원</s></span>
     </p>
-    <p class="social-proof fade">⭐ 1,834명이 지난 7일간 다운로드</p>
-    <p class="price-note fade">(전자책 단독 구매도 29,700원에 가능합니다)</p>
+    <p class="social-proof fade">⭐ 119명이 지난 30일간 다운로드</p>
+    <p class="price-note fade">(0원 혜택은 제품 구매고객분들에게만 제공됩니다. 양해부탁드립니다.)</p>
 
-    <p class="guide fade" style="margin-top: 48px;"><strong>받는 방법은 2단계, 1분이면 끝납니다.</strong></p>
+    <p class="guide fade" style="margin-top: 48px;"><strong>전자책 받는법 1분이면 끝</strong></p>
     <ol class="step-list fade">
       <li>제품을 선택해서 구매합니다</li>
       <li>카톡으로 주문번호 보내면 전자책 받기 끝</li>
@@ -1247,16 +1261,15 @@
     </a>
 
     <p class="delivery-note fade">※ 인증 확인 후 당일 안에(대부분 몇 분 내) 보내드립니다.</p>
-    ⏰ 구매자 무료배포 이벤트는 별도 안내사항없이 종료 될 수 있습니다.
+    <p class="urgency-text fade">⏰ 거치대 구매고객 한정 전자책 제공 혜택은 별도 공지없이 종료 될 수 있으므로 서둘러주세요.</p>
 
 
 
     <div class="fade" style="margin-top: 56px;">
-      <div class="fomo-badge fade">🔥 지금 다운로드한 고객들만 무료</div>
+      <div class="fomo-badge fade">🔥 거치대 구매시 전자책 무료</div>
     </div>
 
-    <p class="guide fade" style="margin-top: 16px;"><strong>전자책을 무료로 받을 수 있는 제품</strong></p>
-    <div class="products fade">
+    <div class="products fade" style="margin-top: 32px;">
       <div class="product-card">
         <a href="https://mkt.shopping.naver.com/link/68f09061db0ddd370ee2758d" target="_blank" rel="noopener">
           <img src="./assets/product-w.png" loading="lazy" alt="W거치대">
@@ -1271,7 +1284,7 @@
         </a>
         <a href="https://mkt.shopping.naver.com/link/6a588fff2063bc6b8ccc1266" target="_blank" rel="noopener" style="display: inline-block; margin-top: 12px; margin-bottom: 16px; font-size: 13px; color: var(--text-dim); font-weight: 600; text-decoration: underline;">스토어에서 보기</a>
         <p class="name">헬픽스</p>
-        <p class="desc">강력자석으로 헬스장 어디든 부착하여 영상시청 가능한 거치대 입니다.</p>
+        <p class="desc">강력자석으로 헬스장 어디든 부착하여 영상보며 운동하세요.</p>
         
       </div>
     </div>
